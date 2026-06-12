@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+  Modèle de grille de prix imprimable — skill pricing-saisonnier.
+  Remplacer les {{PLACEHOLDERS}} et dupliquer les lignes/blocs marqués "REPETER".
+  Garder le style sobre ; adapter --accent à la couleur du profil du logement si fournie.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Grille de prix — {{NOM_LOGEMENT}} ({{PERIODE_COUVERTE}})</title>
+<style>
+  :root { --accent: #2f5d50; --basse: #eef3f1; --moyenne: #fdf6e3; --haute: #fdead9; --tres-haute: #f9dcd2; }
+  * { box-sizing: border-box; }
+  body { font-family: Georgia, "Times New Roman", serif; color: #222; margin: 40px auto; max-width: 880px; padding: 0 24px; line-height: 1.45; }
+  h1 { font-size: 26px; color: var(--accent); margin-bottom: 2px; }
+  .sous-titre { color: #666; margin: 0 0 24px; font-size: 14px; }
+  h2 { font-size: 17px; color: var(--accent); border-bottom: 1px solid #ddd; padding-bottom: 4px; margin-top: 32px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  th { text-align: left; background: var(--accent); color: #fff; padding: 8px 10px; font-weight: normal; }
+  td { padding: 8px 10px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  td.num { text-align: right; white-space: nowrap; }
+  tr.saison-basse td { background: var(--basse); }
+  tr.saison-moyenne td { background: var(--moyenne); }
+  tr.saison-haute td { background: var(--haute); }
+  tr.saison-tres-haute td { background: var(--tres-haute); }
+  .legende { font-size: 12px; color: #555; margin-top: 8px; }
+  .legende span { display: inline-block; width: 12px; height: 12px; margin: 0 4px 0 12px; vertical-align: -1px; border: 1px solid #ccc; }
+  .encadre { border: 2px solid var(--accent); border-radius: 6px; padding: 14px 18px; margin-top: 16px; background: #fafaf7; }
+  .encadre h3 { margin: 0 0 8px; font-size: 15px; color: var(--accent); }
+  .encadre p, .encadre li { font-size: 14px; margin: 4px 0; }
+  .note, footer { font-size: 12px; color: #777; margin-top: 28px; }
+  @media print { body { margin: 10mm auto; } .encadre { break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<h1>Grille de prix — {{NOM_LOGEMENT}}</h1>
+<p class="sous-titre">{{COMMUNE}} · {{CAPACITE}} voyageurs · période {{PERIODE_COUVERTE}} · établie le {{DATE_GENERATION}}</p>
+
+<h2>Grille des périodes</h2>
+<table>
+  <tr><th>Période</th><th>Dates</th><th>Nuit semaine</th><th>Nuit week-end</th><th>Séjour min. (sem. / WE)</th><th>Pourquoi</th></tr>
+  <!-- REPETER pour chaque période ; class = saison-basse | saison-moyenne | saison-haute | saison-tres-haute -->
+  <tr class="saison-{{SAISON}}">
+    <td>{{NOM_PERIODE}}</td><td>{{DEBUT}} → {{FIN}}</td>
+    <td class="num">{{PRIX_SEMAINE}} €</td><td class="num">{{PRIX_WEEKEND}} €</td>
+    <td class="num">{{MIN_STAY_SEMAINE}} / {{MIN_STAY_WEEKEND}} nuits</td><td>{{JUSTIFICATION}}</td>
+  </tr>
+</table>
+<p class="legende">Code couleur :
+  <span style="background:var(--basse)"></span> basse
+  <span style="background:var(--moyenne)"></span> moyenne
+  <span style="background:var(--haute)"></span> haute
+  <span style="background:var(--tres-haute)"></span> très haute saison.
+  Week-end = nuits du vendredi et du samedi. Prix par nuit, hors frais de ménage et taxe de séjour.</p>
+
+<!-- Bloc événements : à supprimer s'il n'y a pas d'événements -->
+<h2>Dates spéciales (événements)</h2>
+<table>
+  <tr><th>Événement</th><th>Dates</th><th>Prix/nuit</th><th>Séjour min.</th><th>Pourquoi</th></tr>
+  <!-- REPETER pour chaque événement -->
+  <tr><td>{{NOM_EVENEMENT}}</td><td>{{DEBUT}} → {{FIN}}</td><td class="num">{{PRIX}} €</td><td class="num">{{MIN_STAY}}</td><td>{{JUSTIFICATION}}</td></tr>
+</table>
+
+<div class="encadre">
+  <h3>Ton point mort — le prix en dessous duquel une nuit te coûte de l'argent</h3>
+  <p>{{PHRASE_POINT_MORT_SIMPLE}}</p>
+  <ul>
+    <!-- REPETER pour chaque hypothèse -->
+    <li>Hypothèse {{NOM_HYPOTHESE}} ({{OCCUPATION}} % d'occupation) : <strong>{{POINT_MORT}} €/nuit</strong></li>
+  </ul>
+  <p>Plancher retenu pour cette grille : <strong>{{PLANCHER}} €/nuit</strong> — aucune période ne descend en dessous{{MENTION_EXCEPTION_PLANCHER}}.</p>
+</div>
+
+<h2>Ce qu'on te recommande en priorité</h2>
+<ol>
+  <!-- REPETER : 3 recommandations max -->
+  <li>{{RECOMMANDATION}}</li>
+</ol>
+
+<p class="note"><strong>D'où viennent ces chiffres :</strong> prix concurrents relevés le {{DATE_RELEVE}} ({{METHODE_RELEVE_HUMAINE}}) sur {{NB_CONCURRENTS}} biens comparables ; calendriers : {{SOURCES_CALENDRIERS}}. Les impacts chiffrés sont des estimations en fourchette, pas des promesses. {{DONNEES_MANQUANTES_PHRASE}}</p>
+
+<footer>Grille générée avec le skill pricing-saisonnier · à réviser chaque début de mois (rituel d'ajustement, ~10 min).</footer>
+</body>
+</html>

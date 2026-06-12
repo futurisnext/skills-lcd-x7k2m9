@@ -1,0 +1,10 @@
+{
+  "name": "skills-lcd",
+  "displayName": "Skills LCD — set Exploitation",
+  "description": "5 skills pour exploiter et optimiser une location courte durée : fiche d'identité du logement, grille de prix saisonnière, kit d'accueil imprimable, réponses aux avis et messages voyageurs, rapport mensuel de pilotage.",
+  "author": {
+    "name": "Futur Is Next"
+  },
+  "license": "Proprietary",
+  "keywords": ["lcd", "location-courte-duree", "airbnb", "booking", "conciergerie"]
+}

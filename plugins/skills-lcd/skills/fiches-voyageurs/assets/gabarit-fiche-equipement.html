@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     GABARIT : FICHE ÉQUIPEMENT (1 page A4 PAR équipement)
+     Variables : {{nom_logement}} {{nom_equipement}} {{phrase_equipement_fr}}
+                 {{phrase_equipement_en}} {{contact_hote}} {{annee}}
+     Trois blocs fixes : Avant / Pendant / Après. Dans chaque bloc, le <li>
+     se répète (1-3 consignes, une consigne = une phrase, FR + EN courte).
+     L'encadré .securite est OPTIONNEL : le garder seulement si l'équipement
+     présente un vrai risque (spa, poêle, cheminée…) ; sinon supprimer tout
+     le bloc <div class="securite">.
+     Les consignes viennent du profil ou de l'hôte — ne jamais inventer un
+     réglage, une température ou une durée.
+     PLACE : la page est dense. Si html_to_pdf signale 2 pages, raccourcir
+     les consignes ; en dernier recours, supprimer le bloc .aide et mettre
+     le contact en dernier point de la liste sécurité (« Un doute, une
+     panne ? Écris-nous via {{contact_hote}}. »).
+     RÈGLE : personnaliser UNIQUEMENT le bloc THÈME, les {{variables}} et les
+     <li>. Ne pas toucher à la structure ni aux autres styles.
+     ═══════════════════════════════════════════════════════════════════ -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>{{nom_equipement}} — {{nom_logement}}</title>
+<style>
+:root{
+  /* ════ THÈME — seule zone à personnaliser (references/gabarits-et-theme.md) ════ */
+  --primaire:#2F4A3C;
+  --accent:#A8763E;
+  --fond:#FAF6EF;
+  --carte:#FFFFFF;
+  --encre:#2C2A26;
+  --encre-douce:#857D70;
+  --filet:#E2D9C8;
+  --police-titre:'Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+  --police-texte:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --rayon:5px;
+  /* ════ fin du thème — ne rien modifier sous cette ligne ════ */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4;margin:0}
+body{font-family:var(--police-texte);color:var(--encre);font-size:11pt;line-height:1.5;
+     -webkit-print-color-adjust:exact;print-color-adjust:exact;background:#8a8a8a}
+.page{width:210mm;min-height:297mm;background:var(--fond);padding:16mm 18mm 10mm;margin:0 auto;
+      position:relative;display:flex;flex-direction:column;page-break-after:always}
+.page:last-child{page-break-after:auto}
+@media screen{.page{margin:10mm auto;box-shadow:0 2px 14px rgba(0,0,0,.3)}}
+@media print{body{background:none}.page{margin:0;box-shadow:none}}
+
+.surtitre{font-size:9pt;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:3mm}
+h1{font-family:var(--police-titre);color:var(--primaire);font-size:28pt;font-weight:600;line-height:1.15}
+.filet{width:28mm;height:.8mm;background:var(--accent);border:0;margin:5mm 0}
+.en{color:var(--encre-douce);font-size:9.5pt;font-style:italic}
+.intro{font-size:11.5pt;max-width:155mm;margin-bottom:7mm}
+.intro .en{display:block;margin-top:1mm}
+
+.etapes{display:flex;flex-direction:column;gap:5mm}
+.etape{background:var(--carte);border:1px solid var(--filet);border-radius:var(--rayon);padding:5mm 7mm}
+.etape h2{font-family:var(--police-titre);color:var(--primaire);font-size:14pt;font-weight:600;
+          display:flex;align-items:baseline;gap:3mm;margin-bottom:2.5mm}
+.etape h2 .numero{font-size:10pt;color:var(--accent);letter-spacing:.12em}
+.etape h2 .en{font-size:10pt;font-weight:400}
+.etape ul{list-style:none}
+.etape li{padding-left:6mm;position:relative;margin-bottom:2mm;font-size:11pt}
+.etape li::before{content:"";position:absolute;left:0;top:.42em;width:2.4mm;height:2.4mm;
+                  background:var(--accent);border-radius:50%}
+.etape li .en{display:block}
+
+.securite{margin-top:6mm;background:var(--carte);border:1px solid var(--filet);
+          border-left:1.6mm solid var(--primaire);border-radius:var(--rayon);padding:5mm 7mm}
+.securite h2{font-family:var(--police-titre);color:var(--primaire);font-size:13pt;font-weight:600;margin-bottom:2mm}
+.securite h2 .en{font-size:10pt;font-weight:400}
+.securite ul{list-style:none}
+.securite li{padding-left:6mm;position:relative;margin-bottom:2mm}
+.securite li::before{content:"";position:absolute;left:0;top:.42em;width:2.4mm;height:2.4mm;
+                     border:.5mm solid var(--primaire);border-radius:50%}
+.securite li .en{display:block}
+
+.aide{margin-top:5mm;padding-top:5mm;border-top:1px solid var(--filet);font-size:10pt;text-align:center}
+.pied{position:absolute;left:0;right:0;bottom:6mm;text-align:center;font-size:8pt;color:var(--encre-douce)}
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="surtitre">Mode d'emploi · How-to</p>
+  <h1>{{nom_equipement}}</h1>
+  <hr class="filet">
+
+  <p class="intro">{{phrase_equipement_fr}}
+    <span class="en">{{phrase_equipement_en}}</span></p>
+
+  <div class="etapes">
+    <div class="etape">
+      <h2><span class="numero">01</span>Avant <span class="en">· Before</span></h2>
+      <ul>
+        <!-- ↻ Répéter ce <li> pour chaque consigne de préparation -->
+        <li>{{consigne_fr}} <span class="en">{{consigne_en}}</span></li>
+      </ul>
+    </div>
+    <div class="etape">
+      <h2><span class="numero">02</span>Pendant <span class="en">· During</span></h2>
+      <ul>
+        <li>{{consigne_fr}} <span class="en">{{consigne_en}}</span></li>
+      </ul>
+    </div>
+    <div class="etape">
+      <h2><span class="numero">03</span>Après <span class="en">· After</span></h2>
+      <ul>
+        <li>{{consigne_fr}} <span class="en">{{consigne_en}}</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OPTIONNEL : supprimer ce bloc si l'équipement ne présente pas de risque -->
+  <div class="securite">
+    <h2>Sécurité <span class="en">· Safety</span></h2>
+    <ul>
+      <li>{{consigne_securite_fr}} <span class="en">{{consigne_securite_en}}</span></li>
+    </ul>
+  </div>
+
+  <p class="aide">Un doute, une panne&nbsp;? <strong>{{contact_hote}}</strong>
+    <span class="en">· Any doubt? Just ask us.</span></p>
+  <p class="pied">{{nom_logement}} · {{annee}}</p>
+</div>
+</body>
+</html>

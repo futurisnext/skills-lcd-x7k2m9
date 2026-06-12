@@ -1,0 +1,99 @@
+<!doctype html>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     GABARIT : CHECKLIST DE SORTIE (1 page A4)
+     Variables : {{nom_logement}} {{checkout}} {{phrase_intro_fr}} {{phrase_intro_en}}
+                 {{phrase_merci_fr}} {{phrase_merci_en}} {{annee}}
+     Le bloc .item se répète : un par consigne de départ du profil
+     (6 à 8 items max — au-delà, regrouper). Chaque item : consigne FR
+     formulée positivement + traduction EN courte.
+     Ton : une checklist d'aide entre amis, jamais un règlement.
+     RÈGLE : personnaliser UNIQUEMENT le bloc THÈME, les {{variables}} et le
+     nombre d'items. Ne pas toucher à la structure ni aux autres styles.
+     ═══════════════════════════════════════════════════════════════════ -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Avant de partir — {{nom_logement}}</title>
+<style>
+:root{
+  /* ════ THÈME — seule zone à personnaliser (references/gabarits-et-theme.md) ════ */
+  --primaire:#2F4A3C;
+  --accent:#A8763E;
+  --fond:#FAF6EF;
+  --carte:#FFFFFF;
+  --encre:#2C2A26;
+  --encre-douce:#857D70;
+  --filet:#E2D9C8;
+  --police-titre:'Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+  --police-texte:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --rayon:5px;
+  /* ════ fin du thème — ne rien modifier sous cette ligne ════ */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4;margin:0}
+body{font-family:var(--police-texte);color:var(--encre);font-size:11pt;line-height:1.5;
+     -webkit-print-color-adjust:exact;print-color-adjust:exact;background:#8a8a8a}
+.page{width:210mm;min-height:297mm;background:var(--fond);padding:16mm 18mm 10mm;margin:0 auto;
+      position:relative;display:flex;flex-direction:column;page-break-after:always}
+.page:last-child{page-break-after:auto}
+@media screen{.page{margin:10mm auto;box-shadow:0 2px 14px rgba(0,0,0,.3)}}
+@media print{body{background:none}.page{margin:0;box-shadow:none}}
+
+.surtitre{font-size:9pt;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:3mm}
+h1{font-family:var(--police-titre);color:var(--primaire);font-size:28pt;font-weight:600;line-height:1.15}
+h1 .en-titre{display:block;font-size:13pt;font-style:italic;color:var(--encre-douce);font-weight:400;margin-top:1.5mm}
+.filet{width:28mm;height:.8mm;background:var(--accent);border:0;margin:6mm 0}
+.en{color:var(--encre-douce);font-size:9.5pt;font-style:italic}
+.intro{font-size:11.5pt;max-width:150mm}
+.intro .en{display:block;margin-top:1mm}
+
+.heure{display:inline-flex;align-items:baseline;gap:3mm;background:var(--carte);
+       border:1px solid var(--filet);border-left:1.2mm solid var(--accent);border-radius:var(--rayon);
+       padding:3.5mm 6mm;margin:6mm 0 7mm;align-self:flex-start}
+.heure strong{font-family:var(--police-titre);font-size:17pt;color:var(--primaire)}
+
+.liste{display:flex;flex-direction:column;gap:3.6mm}
+.item{display:flex;gap:5mm;background:var(--carte);border:1px solid var(--filet);
+      border-radius:var(--rayon);padding:4mm 6mm;align-items:flex-start}
+.case{flex:0 0 auto;width:5.5mm;height:5.5mm;border:.5mm solid var(--accent);border-radius:1.2mm;margin-top:.8mm}
+.item .texte{flex:1}
+.item .fr{font-size:11.5pt}
+.item .en{display:block;margin-top:.4mm}
+
+.merci{margin-top:5mm;padding-top:6mm;border-top:1px solid var(--filet);text-align:center}
+.merci .fr{font-family:var(--police-titre);font-style:italic;font-size:13pt;color:var(--primaire)}
+.merci .en{display:block;margin-top:1mm}
+.pied{position:absolute;left:0;right:0;bottom:6mm;text-align:center;font-size:8pt;color:var(--encre-douce)}
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="surtitre">Check-out</p>
+  <h1>Avant de partir…<span class="en-titre">Before you leave…</span></h1>
+  <hr class="filet">
+
+  <p class="intro">{{phrase_intro_fr}}
+    <span class="en">{{phrase_intro_en}}</span></p>
+
+  <p class="heure">Départ avant <strong>{{checkout}}</strong> <span class="en">· check-out by {{checkout}}</span></p>
+
+  <div class="liste">
+    <!-- ↻ Répéter ce bloc .item pour chaque consigne de départ (6-8 max) -->
+    <div class="item">
+      <div class="case"></div>
+      <div class="texte">
+        <span class="fr">{{consigne_fr}}</span>
+        <span class="en">{{consigne_en}}</span>
+      </div>
+    </div>
+    <!-- fin du bloc répétable -->
+  </div>
+
+  <div class="merci">
+    <p class="fr">{{phrase_merci_fr}}</p>
+    <span class="en">{{phrase_merci_en}}</span>
+  </div>
+  <p class="pied">{{nom_logement}} · {{annee}}</p>
+</div>
+</body>
+</html>

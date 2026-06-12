@@ -1,0 +1,178 @@
+<!doctype html>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     GABARIT : GUIDE D'ACCUEIL (2 pages A4 = recto-verso)
+     Variables page 1 : {{nom_logement}} {{baseline}} {{mot_bienvenue_fr}}
+       {{mot_bienvenue_en}} {{checkin_debut}} {{checkin_fin}} {{checkout}}
+       {{acces_resume_fr}} {{acces_resume_en}} {{contact_hote}}
+     Variables page 2 : {{regle_fr}} {{regle_en}} (répétables, max 6),
+       {{info_titre}} {{info_fr}} {{info_en}} (répétables, 2-4 blocs
+       « bon à savoir » : WiFi → renvoi fiche dédiée, poubelles, chauffage…),
+       {{numero_*}}, {{mot_fin_fr}} {{mot_fin_en}} {{annee}}
+     « La maison en bref » : 4 à 6 équipements clés, une ligne chacun.
+     Règles de la maison : formulées POSITIVEMENT (« la terrasse accueille
+     les fumeurs » plutôt que « interdit de fumer »), max 6.
+     SÉCURITÉ : si le guide peut sortir du logement, ne pas y inscrire de
+     code sensible (boîte à clés…) — préférer « code envoyé avant l'arrivée ».
+     Demander à l'hôte. Jamais le mot de passe WiFi ici : fiche dédiée.
+     RÈGLE : personnaliser UNIQUEMENT le bloc THÈME, les {{variables}} et les
+     blocs marqués ↻. Ne pas toucher à la structure ni aux autres styles.
+     ═══════════════════════════════════════════════════════════════════ -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Guide d'accueil — {{nom_logement}}</title>
+<style>
+:root{
+  /* ════ THÈME — seule zone à personnaliser (references/gabarits-et-theme.md) ════ */
+  --primaire:#2F4A3C;
+  --accent:#A8763E;
+  --fond:#FAF6EF;
+  --carte:#FFFFFF;
+  --encre:#2C2A26;
+  --encre-douce:#857D70;
+  --filet:#E2D9C8;
+  --police-titre:'Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+  --police-texte:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --rayon:5px;
+  /* ════ fin du thème — ne rien modifier sous cette ligne ════ */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4;margin:0}
+body{font-family:var(--police-texte);color:var(--encre);font-size:11pt;line-height:1.5;
+     -webkit-print-color-adjust:exact;print-color-adjust:exact;background:#8a8a8a}
+.page{width:210mm;min-height:297mm;background:var(--fond);padding:16mm 18mm 10mm;margin:0 auto;
+      position:relative;display:flex;flex-direction:column;page-break-after:always}
+.page:last-child{page-break-after:auto}
+@media screen{.page{margin:10mm auto;box-shadow:0 2px 14px rgba(0,0,0,.3)}}
+@media print{body{background:none}.page{margin:0;box-shadow:none}}
+
+.surtitre{font-size:9pt;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:3mm}
+h1{font-family:var(--police-titre);color:var(--primaire);font-size:30pt;font-weight:600;line-height:1.1}
+.baseline{font-family:var(--police-titre);font-style:italic;color:var(--encre-douce);font-size:13pt;margin-top:2mm}
+.filet{width:28mm;height:.8mm;background:var(--accent);border:0;margin:6mm 0}
+.en{color:var(--encre-douce);font-size:9.5pt;font-style:italic}
+h2{font-family:var(--police-titre);color:var(--primaire);font-size:15pt;font-weight:600;margin:7mm 0 3.5mm}
+h2 .en{font-size:10pt;font-weight:400}
+h2:first-of-type{margin-top:0}
+
+.bienvenue{font-size:11.5pt;max-width:160mm}
+.bienvenue .en{display:block;margin-top:2mm}
+
+.sejour{display:flex;gap:4mm}
+.sejour .bloc{flex:1;background:var(--carte);border:1px solid var(--filet);border-top:1.2mm solid var(--accent);
+              border-radius:var(--rayon);padding:4.5mm 5.5mm}
+.sejour .etiquette{font-size:8.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--encre-douce)}
+.sejour .valeur{font-family:var(--police-titre);font-size:15pt;color:var(--primaire);margin:1mm 0}
+.sejour .detail{font-size:9.5pt}
+.sejour .detail .en{display:block}
+
+.maison{list-style:none}
+.maison li{display:flex;gap:4mm;padding:2.6mm 0;border-bottom:1px solid var(--filet);align-items:baseline}
+.maison li:last-child{border-bottom:0}
+.maison .puce{flex:0 0 auto;width:2.4mm;height:2.4mm;background:var(--accent);border-radius:50%;
+              position:relative;top:-.6mm}
+.maison strong{color:var(--primaire)}
+.maison .en{display:block;margin-top:.2mm}
+
+.regles{list-style:none}
+.regles li{padding-left:7mm;position:relative;margin-bottom:3mm}
+.regles li::before{content:"";position:absolute;left:0;top:.4em;width:3mm;height:.7mm;background:var(--accent)}
+.regles li .en{display:block}
+
+.infos{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.infos .bloc{background:var(--carte);border:1px solid var(--filet);border-radius:var(--rayon);padding:4mm 5.5mm}
+.infos h3{font-family:var(--police-titre);font-size:11.5pt;color:var(--primaire);margin-bottom:1.2mm}
+.infos p{font-size:10pt}
+.infos .en{display:block;margin-top:.4mm}
+
+.numeros{display:flex;flex-wrap:wrap;gap:3mm 8mm;background:var(--carte);border:1px solid var(--filet);
+         border-radius:var(--rayon);padding:4mm 6mm;font-size:10pt}
+.numeros span strong{color:var(--primaire)}
+
+.motfin{margin-top:5mm;padding-top:5mm;border-top:1px solid var(--filet);text-align:center}
+.motfin .fr{font-family:var(--police-titre);font-style:italic;font-size:12.5pt;color:var(--primaire)}
+.motfin .en{display:block;margin-top:1mm}
+.pied{position:absolute;left:0;right:0;bottom:6mm;text-align:center;font-size:8pt;color:var(--encre-douce)}
+.pied-p1{position:absolute;left:0;right:0;bottom:6mm;text-align:center;font-size:8pt;color:var(--encre-douce)}
+</style>
+</head>
+<body>
+
+<!-- ═════════════════ PAGE 1 (recto) ═════════════════ -->
+<div class="page">
+  <p class="surtitre">Guide d'accueil · Welcome guide</p>
+  <h1>{{nom_logement}}</h1>
+  <p class="baseline">{{baseline}}</p>
+  <hr class="filet">
+
+  <p class="bienvenue">{{mot_bienvenue_fr}}
+    <span class="en">{{mot_bienvenue_en}}</span></p>
+
+  <h2 style="margin-top:7mm">Votre séjour <span class="en">· Your stay</span></h2>
+  <div class="sejour">
+    <div class="bloc">
+      <p class="etiquette">Arrivée · Check-in</p>
+      <p class="valeur">{{checkin_debut}} – {{checkin_fin}}</p>
+      <p class="detail">{{acces_resume_fr}} <span class="en">{{acces_resume_en}}</span></p>
+    </div>
+    <div class="bloc">
+      <p class="etiquette">Départ · Check-out</p>
+      <p class="valeur">{{checkout}}</p>
+      <p class="detail">La checklist de sortie est affichée dans le logement. <span class="en">See the check-out list displayed inside.</span></p>
+    </div>
+    <div class="bloc">
+      <p class="etiquette">Contact</p>
+      <p class="valeur" style="font-size:12.5pt">{{contact_hote}}</p>
+      <p class="detail">On répond vite, n'hésitez jamais. <span class="en">We answer fast — never hesitate.</span></p>
+    </div>
+  </div>
+
+  <h2>La maison en bref <span class="en">· The house at a glance</span></h2>
+  <ul class="maison">
+    <!-- ↻ Répéter ce <li> pour 4 à 6 équipements clés (une ligne chacun) -->
+    <li><span class="puce"></span><div><strong>{{equipement}}</strong> — {{consigne_courte_fr}}
+      <span class="en">{{consigne_courte_en}}</span></div></li>
+    <!-- fin du bloc répétable -->
+  </ul>
+
+  <p class="pied-p1">{{nom_logement}} — page 1/2</p>
+</div>
+
+<!-- ═════════════════ PAGE 2 (verso) ═════════════════ -->
+<div class="page">
+  <h2>La maison heureuse <span class="en">· House rules</span></h2>
+  <ul class="regles">
+    <!-- ↻ Répéter ce <li> pour chaque règle (max 6, formulées positivement) -->
+    <li>{{regle_fr}} <span class="en">{{regle_en}}</span></li>
+    <!-- fin du bloc répétable -->
+  </ul>
+
+  <h2>Bon à savoir <span class="en">· Good to know</span></h2>
+  <div class="infos">
+    <!-- ↻ Répéter ce bloc pour 2 à 4 infos pratiques (WiFi → renvoi à la
+         fiche dédiée, poubelles, chauffage, parking…) -->
+    <div class="bloc">
+      <h3>{{info_titre}}</h3>
+      <p>{{info_fr}} <span class="en">{{info_en}}</span></p>
+    </div>
+    <!-- fin du bloc répétable -->
+  </div>
+
+  <h2>Numéros utiles <span class="en">· Useful numbers</span></h2>
+  <div class="numeros">
+    <span><strong>112</strong> urgences européennes · EU emergency</span>
+    <span><strong>15</strong> SAMU · medical</span>
+    <span><strong>17</strong> police</span>
+    <span><strong>18</strong> pompiers · fire dept</span>
+    <span><strong>{{contact_hote}}</strong> votre hôte · your host</span>
+  </div>
+
+  <div class="motfin">
+    <p class="fr">{{mot_fin_fr}}</p>
+    <span class="en">{{mot_fin_en}}</span>
+  </div>
+  <p class="pied">{{nom_logement}} · {{annee}} — page 2/2</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "maxxweb-lcd",
+  "owner": {
+    "name": "Futur Is Next",
+    "email": "maxweb3939@gmail.com"
+  },
+  "description": "Skills Claude pour hôtes et investisseurs en location courte durée (LCD) — distribution privée Futur Is Next.",
+  "plugins": [
+    {
+      "name": "skills-lcd",
+      "source": "./plugins/skills-lcd",
+      "description": "Set « Exploitation » : 5 skills pour piloter une location courte durée avec Claude (profil du logement, pricing saisonnier, fiches voyageurs, réponses avis, dashboard mensuel)."
+    }
+  ]
+}
