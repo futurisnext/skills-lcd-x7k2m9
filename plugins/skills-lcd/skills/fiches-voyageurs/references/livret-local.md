@@ -56,6 +56,14 @@ Règles d'exactitude, dans l'ordre :
   annuaire. La sélection EST le service.
 - Ordonner chaque section du plus proche au plus lointain, ou du plus emblématique
   au plus confidentiel — un ordre voulu, pas l'ordre du profil.
+- **Cible d'impression : 2 OU 4 pages, jamais 1 ni 3.** Le livret s'imprime soit en
+  recto-verso (2 pages), soit en feuille A4 pliée en livret (4 pages) ; 3 pages ne
+  tombe sur aucun des deux et gâche du papier. Calibre la matière pour viser l'un
+  des deux : s'il déborde à 3 pages, soit resserrer à 2 (sélection plus stricte,
+  descriptions plus courtes), soit enrichir à 4 (étoffer les recos, ajouter une
+  section, ou une page « infos pratiques » : marché, pharmacie, numéros utiles).
+  Annoncer à l'hôte la cible retenue. C'est un arbitrage de contenu, jamais de mise
+  en page : règle le compte de pages via `--pages-attendues` sur le total visé.
 
 ## Avant livraison
 

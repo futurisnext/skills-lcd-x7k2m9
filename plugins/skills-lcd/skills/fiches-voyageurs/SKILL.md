@@ -52,7 +52,7 @@ Propose le **kit complet (5 pièces)** ou à la carte :
 | 2. Fiche WiFi + QR | `gabarit-fiche-wifi.html` | 1 |
 | 3. Checklist de sortie | `gabarit-checklist-sortie.html` | 1 |
 | 4. Fiches équipement | `gabarit-fiche-equipement.html` | 1 par équipement |
-| 5. Livret d'expériences locales | `gabarit-livret-local.html` | 2-4 |
+| 5. Livret d'expériences locales | `gabarit-livret-local.html` | 2 ou 4 |
 
 À clarifier avant de produire (uniquement ce qui manque) :
 - **Mot de passe WiFi** : jamais stocké dans le profil (qui ne garde que le nom du
@@ -111,7 +111,9 @@ Convertis chaque fiche et vérifie sa pagination d'un même geste :
 ```bash
 python scripts/html_to_pdf.py fiche.html fiche.pdf --pages-attendues 1
 ```
-(guide d'accueil : `--pages-attendues 2` ; livret : le nombre de pages construit).
+(guide d'accueil : `--pages-attendues 2` ; livret : **viser 2 ou 4 pages, jamais 1
+ni 3** — recto-verso ou feuille A4 pliée en livret ; règle de calibrage dans
+`references/livret-local.md`).
 Le script essaie Chrome/Chromium headless puis WeasyPrint ; code de sortie 3 =
 aucun convertisseur → livre les HTML seuls, ils s'impriment très bien depuis un
 navigateur (le LISEZMOI explique comment). Code 4 = débordement → raccourcis ou

@@ -21,6 +21,16 @@ après lecture d'un formulaire PDF ou d'un profil incomplet.
 - **Adapter l'ordre** : si l'hôte donne spontanément des infos d'un bloc ultérieur,
   les noter tout de suite et ne pas les redemander plus tard.
 
+## Avant de questionner : partir de l'existant
+
+Avant de dérouler les blocs ci-dessous, demande toujours si l'hôte a déjà de la
+matière écrite — annonce en ligne, livret d'accueil, messages types envoyés aux
+voyageurs — et invite-le à **copier-coller** ce texte (voir Voie C du SKILL.md).
+Le copier-coller marche partout et sans effort ; un lien d'annonce n'est qu'une
+tentative bonus (souvent bloquée), avec repli immédiat sur le copier-coller. Tu
+pré-remplis ainsi l'essentiel et tu ne poses les questions ci-dessous que pour
+**les trous et les incohérences**.
+
 ## Les blocs, dans l'ordre conseillé
 
 ### Bloc 1 — Identité du bien

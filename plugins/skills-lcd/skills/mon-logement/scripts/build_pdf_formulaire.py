@@ -210,9 +210,9 @@ def construire(chemin_sortie):
     # ---- 3. Équipements -------------------------------------------------------
     f.section("3. Équipements", "Séparez par des virgules.")
     f.zone("Équipements « waouh » qui vous différencient", "equipements__differenciants",
-           "Ex. jacuzzi privatif, sauna, poêle à bois, baie vitrée vue forêt…", 34)
+           "Ex. jacuzzi privatif, sauna, poêle à bois, baie vitrée vue forêt…", 46)
     f.zone("Équipements de confort", "equipements__confort",
-           "Ex. parking privé, WiFi, cuisine équipée, climatisation…", 34)
+           "Ex. parking privé, WiFi, cuisine équipée, climatisation…", 46)
     f.ligne([("Ce qu'il n'y a PAS (volontairement)", "equipements__absents_assumes", 1,
               "Ex. pas de TV — assumé pour la déconnexion")])
 
@@ -256,7 +256,7 @@ def construire(chemin_sortie):
     # ---- 7. Calendrier -----------------------------------------------------------
     f.section("7. Vos blocages de calendrier")
     f.zone("Périodes où VOUS utilisez ou bloquez le logement", "calendrier__blocages_perso",
-           "Ex. 1re semaine d'août en famille, week-end de Pâques, maintenance spa en novembre…", 34)
+           "Ex. 1re semaine d'août en famille, week-end de Pâques, maintenance spa en novembre…", 54)
 
     # ---- 8. Le séjour ------------------------------------------------------------
     f.section("8. Le séjour, côté pratique")
@@ -266,13 +266,14 @@ def construire(chemin_sortie):
              ("Départ avant", "sejour__checkout", 1, "Ex. 11:00")])
     f.zone("Comment les voyageurs entrent-ils ?", "sejour__acces",
            "Boîte à clés (et son code), serrure connectée, remise en main propre… "
-           "+ instructions pour trouver l'entrée", 34)
+           "+ instructions pour trouver l'entrée", 58)
     f.ligne([("Nom du réseau WiFi", "sejour__wifi_nom", 1,
               "Le NOM du réseau uniquement — jamais le mot de passe ici")])
     f.zone("Règles de la maison", "sejour__regles",
-           "Ex. non fumeur, pas d'animaux, pas de fête, calme après 22h…", 34)
+           "Ex. non fumeur, pas d'animaux, pas de fête, calme après 22h…", 52)
     f.zone("Consignes de départ", "sejour__consignes_depart",
-           "Ce que les voyageurs doivent faire avant de partir : poubelles, vaisselle, linge…", 34)
+           "Ce que les voyageurs doivent faire avant de partir : poubelles, vaisselle, linge, "
+           "où laisser les clés, fenêtres, chauffage…", 76)
 
     # ---- 9. Contacts ----------------------------------------------------------------
     f.section("9. Contacts utiles", "Ménage, dépannage, jardinier… Vos numéros restent dans votre dossier privé.")
@@ -284,9 +285,9 @@ def construire(chemin_sortie):
     # ---- 10. Marché -----------------------------------------------------------------
     f.section("10. Votre marché local")
     f.zone("3 à 5 logements concurrents que vous connaissez", "marche__concurrents",
-           "Un par ligne : nom de l'annonce — commune — capacité — prix approximatif", 56)
+           "Un par ligne : nom de l'annonce — commune — capacité — prix approximatif", 104)
     f.zone("Événements locaux qui font monter la demande", "marche__evenements",
-           "Festivals, compétitions, marchés de Noël… avec le mois si possible", 34)
+           "Festivals, compétitions, marchés de Noël… avec le mois si possible", 52)
     f.ligne([("Haute saison chez vous", "marche__saison_haute", 1,
               "Ex. juillet-août, vacances scolaires, Noël…"),
              ("Périodes creuses", "marche__saison_basse", 1,
@@ -308,9 +309,9 @@ def construire(chemin_sortie):
     # ---- 12. Recos & notes ------------------------------------------------------------
     f.section("12. Vos bonnes adresses & tout le reste")
     f.zone("3 à 5 recommandations locales", "recos_locales",
-           "Restaurants, activités, commerces… Une par ligne, avec un mot sur pourquoi vous l'aimez", 56)
+           "Restaurants, activités, commerces… Une par ligne, avec un mot sur pourquoi vous l'aimez", 104)
     f.zone("Tout ce qui n'a pas trouvé sa place ailleurs", "notes_libres",
-           "Anecdotes, particularités, ce que les voyageurs adorent…", 46)
+           "Anecdotes, particularités, ce que les voyageurs adorent…", 72)
 
     f.terminer()
 

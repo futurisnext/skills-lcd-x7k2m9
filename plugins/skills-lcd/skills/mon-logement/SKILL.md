@@ -52,12 +52,16 @@ Avant toute question, inspecte le dossier de travail :
    - en ancien format (sans en-tête structuré) → propose la **migration** : suis
      `references/schema-profil.md` §8. Quasiment tout se reporte sans question ;
      ne demande que les infos nouvelles du format actuel.
-3. **Rien de tout ça** → propose les deux voies et laisse choisir :
+3. **Rien de tout ça** → propose les voies et laisse choisir :
+   - **le plus rapide : partir de ce qui existe déjà** (**Voie C**) — annonce en
+     ligne, livret d'accueil, messages types déjà écrits ;
    - remplir tranquillement le formulaire PDF hors-ligne (copie
      `assets/formulaire-mon-logement.pdf` dans son dossier et explique : remplir,
      enregistrer, redéposer, puis revenir te voir) ;
    - ou répondre à quelques questions ici, par petites étapes (**Voie B**).
-   S'il hésite, recommande la conversation : c'est immédiat et tu t'adaptes.
+   S'il a déjà une annonce, un livret ou des messages types, recommande la
+   **Voie C** : c'est le moins d'effort pour lui. Sinon la conversation (Voie B)
+   est immédiate et tu t'adaptes.
 
 Plusieurs logements = un fichier par logement ; si un profil existe déjà mais que
 l'hôte parle d'un autre bien, crée une nouvelle fiche sans toucher à la première.
@@ -93,6 +97,32 @@ dans `references/interview.md` — lis-le au moment de mener l'interview. L'esse
   suite vaut mieux qu'une interview parfaite abandonnée en route.
 - Si l'hôte donne des infos en vrac, range-les au bon endroit et ne les redemande
   pas. S'il s'essouffle, propose de finir là et de compléter plus tard.
+
+## Voie C — Partir de vos documents existants (le plus rapide)
+
+Beaucoup d'hôtes ont déjà écrit l'essentiel ailleurs. Avant de poser des questions,
+demande systématiquement : « Avez-vous déjà une annonce en ligne, un livret
+d'accueil, ou des messages que vous envoyez souvent à vos voyageurs ? » Trois
+sources, par ordre de fiabilité :
+
+1. **Copier-coller (le plus sûr — à privilégier).** Invite l'hôte à coller
+   directement le texte : description de l'annonce, contenu du livret d'accueil,
+   messages types (arrivée, départ, WiFi, recommandations). Aucun outil requis,
+   rien ne peut échouer, et l'hôte a souvent ce texte sous la main. Dis-le
+   simplement : « collez-moi ce que vous avez déjà écrit, je trie. »
+2. **Lien d'annonce (tentative bonus).** S'il donne un lien (Airbnb, Booking,
+   Gîtes de France…), tente de le lire. Préviens que ça ne capte pas toujours
+   tout. **Si la lecture échoue ou revient pauvre — fréquent, les annonces
+   bloquent souvent la lecture automatique —, ne t'acharne pas** : demande de
+   copier-coller le texte de l'annonce (source 1). Ne laisse jamais un hôte
+   non-technicien face à un échec technique.
+3. **Document déjà déposé.** Un PDF ou texte de livret présent dans le dossier de
+   travail se lit directement.
+
+Extrais de cette matière tout ce qui se mappe sur le schéma
+(`references/schema-profil.md`), puis enchaîne comme en Voie A : ne pose de
+questions que sur les trous et les incohérences, et termine par la validation
+finale. Tu épargnes à l'hôte l'essentiel de l'interview.
 
 ## Production du fichier
 
